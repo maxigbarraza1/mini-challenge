@@ -1,0 +1,55 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>Formulario Persona</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form (ngSubmit)="submit()" [formGroup]="personaForm">
+            <div class="form-container">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input  matInput 
+                                placeholder="Gabriel Maximiliano"
+                                formControlName="nombre">
+                        <mat-error *ngIf="validarCampos('nombre')">{{getMensajeError('nombre')}}</mat-error>
+                    </mat-form-field>
+                </p>
+    
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Edad</mat-label>
+                        <input  matInput
+                                placeholder="24"
+                                formControlName="edad">
+                        <mat-error *ngIf="validarCampos('edad')">{{getMensajeError('edad')}}</mat-error>
+                    </mat-form-field>
+                </p>
+    
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Carrera</mat-label>
+                        <input  matInput 
+                                placeholder="Ing. de sistemas"
+                                formControlName="carrera">
+                        <mat-error *ngIf="validarCampos('carrera')">{{getMensajeError('carrera')}}</mat-error>
+                    </mat-form-field>
+    
+                </p>
+    
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Hobbie</mat-label>
+                        <input  matInput 
+                                placeholder="Patinar en skate"
+                                formControlName="hobbie">
+                        <mat-error *ngIf="validarCampos('hobbie')">{{getMensajeError('hobbie')}}</mat-error>
+                    </mat-form-field>
+    
+                </p>
+            </div>
+        </form>
+        <div class="button-container">
+            <button type="submit" (click)="submit()" [disabled]="personaForm.invalid" mat-raised-button color="primary">Submit</button>
+        </div>
+    </mat-card-content>
+</mat-card>
